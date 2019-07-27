@@ -12,6 +12,6 @@ python reminder.py
 
 It will save the task and time in csv file `reminded_me.csv`. Remind you by opening up a default broswer with task written in google search bar.
 
-![Command line](command_line.png)
+![Command line](Selection_001.png)
 
 ![Reminding](being_alive.png)
