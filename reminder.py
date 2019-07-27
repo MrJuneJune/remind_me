@@ -51,6 +51,8 @@ class reminder():
                     # Popping
                     reminder_list_clean.pop(i)
                     print("There are {0} more things to do !".format(len(reminder_list_clean)))
+                    print(*reminder_list_clean, sep = "\n")
+
 
 if __name__ == "__main__":
     x = reminder()
