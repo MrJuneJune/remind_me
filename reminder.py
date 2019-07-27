@@ -20,9 +20,8 @@ class reminder():
                 break
 
         # Creating csv file of this.
-        with open('remind_me.csv','w') as out:
+        with open('remind_me.csv','a') as out:
             csv_out=csv.writer(out)
-            csv_out.writerow(['Task', 'Time'])
             for row in self.total_schedule:
                 csv_out.writerow(row) 
 
@@ -31,12 +30,11 @@ class reminder():
         while True:
             # Checking every 10 seconds.
             time.sleep(10)
-            for i in range(len(self.total_schedule)):
-                if datetime.now().replace(second=0, microsecond=0) == self.total_schedule[i][1]:
-                    # Opening up browser to let you know.
-                    webbrowser.open('https://www.google.com/search?client=ubuntu&channel=fs&q={0}&ie=utf-8&oe=utf-8'.format(self.total_schedule[i][0]))
-                    self.total_schedule.pop(i)
-                    print("There are {0} more things to do !".format(len(self.total_schedule)))
+            if datetime.now().replace(second=0, microsecond=0) == self.total_schedule[0][1]:
+                # Opening up browser to let you know.
+                webbrowser.open('https://www.google.com/search?client=ubuntu&channel=fs&q={0}&ie=utf-8&oe=utf-8'.format(self.total_schedule[0][0]))
+                self.total_schedule.pop(0)
+                print("There are {0} more things to do !".format(len(self.total_schedule)))
             if len(self.total_schedule) == 0:
                 break
 
